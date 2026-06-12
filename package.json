@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "fflate": "^0.8.3",
+    "svelte": "^5.56.3"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.1.2",
+    "fake-indexeddb": "^6.2.5",
+    "svelte-check": "^4.6.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.8"
+  },
+  "name": "cashflower",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Cashflower — turn Pollinations pollen into profit. Guided side-hustle pipelines with a built-in ROI ledger.",
+  "author": "Dave Alan Caruana / Techmagic (https://techmagic.info)",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest run"
+  }
+}
