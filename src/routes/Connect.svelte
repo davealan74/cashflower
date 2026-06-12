@@ -44,9 +44,10 @@
   function authorize(): void {
     const state = makeState();
     sessionStorage.setItem(STATE_KEY, state);
+    // Must byte-match the registered redirect URI (bare origin, no fragment).
     location.href = buildAuthorizeUrl({
       clientId: settings.byopClientId,
-      redirectUri: `${location.origin}${location.pathname}#/connect`,
+      redirectUri: `${location.origin}/`,
       state,
     });
   }

@@ -15,8 +15,13 @@ function load(): Persisted {
   }
 }
 
+/** Publishable BYOP app id — safe to ship in client code by design. */
+const DEFAULT_BYOP_CLIENT_ID = 'pk_y9ePbCb7kZGvBEaF';
+
 class Settings {
-  byopClientId = $state<string>(load().byopClientId ?? import.meta.env.VITE_BYOP_CLIENT_ID ?? '');
+  byopClientId = $state<string>(
+    load().byopClientId ?? import.meta.env.VITE_BYOP_CLIENT_ID ?? DEFAULT_BYOP_CLIENT_ID,
+  );
   costs = $state<CostTable>(load().costs ?? structuredClone(DEFAULT_COSTS));
 
   save(): void {

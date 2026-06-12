@@ -8,6 +8,14 @@
   import Settings from './routes/Settings.svelte';
   import { router } from './lib/router.svelte';
   import { ledger } from './lib/ledger/store.svelte';
+  import { parseAuthFragment } from './lib/auth/byop';
+
+  // The BYOP redirect URI is the bare origin (fragments are not allowed in
+  // redirect URIs), so the returning `#api_key=…` lands on the root route —
+  // forward it to the connect page, which completes the handshake.
+  if (parseAuthFragment(location.hash) && !location.hash.startsWith('#/connect')) {
+    location.hash = `#/connect?${location.hash.slice(1)}`;
+  }
 
   ledger.load();
 
